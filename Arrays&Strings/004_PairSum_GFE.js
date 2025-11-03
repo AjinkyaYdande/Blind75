@@ -35,15 +35,18 @@ function pairSumOptimized(numbers, target) {
 // Optimised solution using 2 pointers.
 // 2 pointers required arrays to be sorted
 function pairSumUsingTwoPointers(numbers, target) {
+    let arr = numbers.map((num, index) => ({ num, index }));
+    arr.sort((a, b) => a.num - b.num);
+
     let start = 0;
-    let end = numbers.length - 1;
-    while (start < end){
-        let sum = numbers[start] + numbers[end];
-        if(sum === target){
-            return [start,end];
-        }else if(sum < target){
+    let end = arr.length - 1;
+    while (start < end) {
+        let sum = arr[start].num + arr[end].num;
+        if (sum === target) {
+            return [arr[start].index, arr[end].index];
+        } else if (sum < target) {
             start++;
-        }else{
+        } else {
             end--
         }
     }
