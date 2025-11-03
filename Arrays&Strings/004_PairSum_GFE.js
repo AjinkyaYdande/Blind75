@@ -10,9 +10,9 @@ function pairSum(numbers, target) {
     }
 }
 
-console.log(pairSum([0, 7, 1, 9], 7)); // [0,1]
-console.log(pairSum([4, 9, 2, 1, 7], 5));   // [0,3]
-console.log(pairSum([4, 4], 8));   // [ 0,1]
+// console.log(pairSum([0, 7, 1, 9], 7)); // [0,1]
+// console.log(pairSum([4, 9, 2, 1, 7], 5));   // [0,3]
+// console.log(pairSum([4, 4], 8));   // [ 0,1]
 
 // optimal approach using hashmap O(n) time complexity
 function pairSumOptimized(numbers, target) {
@@ -28,11 +28,12 @@ function pairSumOptimized(numbers, target) {
     return [];
 }
 
-console.log(pairSumOptimized([0, 7, 1, 9], 7)); // [0,1]
-console.log(pairSumOptimized([4, 9, 2, 1, 7], 5));   // [0,3]
-console.log(pairSumOptimized([4, 4], 8));   // [ 0,1]
+// console.log(pairSumOptimized([0, 7, 1, 9], 7)); // [0,1]
+// console.log(pairSumOptimized([4, 9, 2, 1, 7], 5));   // [0,3]
+// console.log(pairSumOptimized([4, 4], 8));   // [ 0,1]
 
-
+// Optimised solution using 2 pointers.
+// 2 pointers required arrays to be sorted
 function pairSumUsingTwoPointers(numbers, target) {
     let start = 0;
     let end = numbers.length - 1;
@@ -41,9 +42,9 @@ function pairSumUsingTwoPointers(numbers, target) {
         if(sum === target){
             return [start,end];
         }else if(sum < target){
-            end++;
+            start++;
         }else{
-            start--
+            end--
         }
     }
     return [];
